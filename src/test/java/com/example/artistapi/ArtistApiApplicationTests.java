@@ -40,7 +40,7 @@ class ArtistApiApplicationTests {
 
 	@Test
 	public void shouldReturnErrorMessage() throws Exception {
-		String expectedContent = "{\"mbid\":null,\"description\":\"No artist found for MBID: 5a. Try with '5b11f4ce-a62d-471e-81fc-a69a8278c7da' or '070d193a-845c-479f-980e-bef15710653e' instead :)\",\"albums\":null}";
+		String expectedContent = "{\"mbid\":\"5a\",\"description\":\"No artist found for MBID: 5a. Try with '5b11f4ce-a62d-471e-81fc-a69a8278c7da' or '070d193a-845c-479f-980e-bef15710653e' instead :)\",\"albums\":null}";
 		this.mockMvc.perform(get("/5a")).andDo(print())
 				.andExpect(content().string(containsString(expectedContent)));
 	}
