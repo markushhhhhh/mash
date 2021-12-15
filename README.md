@@ -1,14 +1,14 @@
 # Mash
 MusicMasher service 
 
-# Description
+## Description
 Aggregating(mashing) data from 4 REST APIs and starting a new REST API. The APIs used are:
 - MusicBrainz (http://musicbrainz.org/ws/2)
 - Cover Art Archive (http://coverartarchive.org/)
 - Wikidata (https://www.wikidata.org/w/api.php)
 - Wikipedia (https://en.wikipedia.org/w/api.php)
 
-# Use instructions
+## Use instructions
 Make use of Maven
 ```
 $ mvn install
@@ -32,10 +32,12 @@ Access musicbrainz.org to fetch mbids for your favorite artist
 | Nirvana           | 5b11f4ce-a62d-471e-81fc-a69a8278c7da  |
 | Robyn             | 5a8e07d5-d932-4484-a7f7-e700793a9c94  |
 
-# Example
+## Example
 
 Request:
 `localhost:8080/f27ec8db-af05-4f36-916e-3d57f91ecf5e`
+or
+`https://mash.uppeimolnen.se/f27ec8db-af05-4f36-916e-3d57f91ecf5e`
 
 Response : 
 ```
@@ -57,6 +59,6 @@ Response :
 }
 ```
 
-# Known issues
+## Known issues
 The CoverArtArchive API is slow and the error handling can be improved
 
