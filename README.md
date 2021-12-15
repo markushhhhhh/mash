@@ -62,6 +62,5 @@ Response :
 ```
 
 ## Known issues
-* The CoverArtArchive API is quite slow which in turn slows down the response time for the Mash service
-* The error handling surrounding the external REST APIs can be improved
+* The CoverArtArchive API is quite slow which in turn slows down the response time for the Mash service REST API.
 
