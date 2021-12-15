@@ -2,7 +2,7 @@
 MusicMasher service 
 
 ## Description
-Aggregating(mashing) data from 4 REST APIs and starting a new REST API. The APIs used are:
+Aggregating(mashing) data from 4 REST APIs and providing data for an artist through a new REST API. The 4 APIs used for aggreagating data are:
 - MusicBrainz (http://musicbrainz.org/ws/2)
 - Cover Art Archive (http://coverartarchive.org/)
 - Wikidata (https://www.wikidata.org/w/api.php)
