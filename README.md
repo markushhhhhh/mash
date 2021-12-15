@@ -32,6 +32,7 @@ Access musicbrainz.org to fetch mbids for your favorite artist
 * Nirvana - 5b11f4ce-a62d-471e-81fc-a69a8278c7da
 * Robyn   - 5a8e07d5-d932-4484-a7f7-e700793a9c94
 * Meshuggah - cf8b3b8c-118e-4136-8d1d-c37091173413
+* Tommy Körberg - 3d142b46-bf4b-4f71-97ee-1c1ae4dbf2a0
 
 ## Example
 
