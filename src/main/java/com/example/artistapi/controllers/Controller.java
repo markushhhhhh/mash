@@ -28,9 +28,4 @@ public class Controller {
         }
     }
 
-    @GetMapping("/")
-    public String getNone() {
-        // IMPROVEMENT - Better solution?
-        return "{\"info\": \"Please provide an MBID in the url! For example: /070d193a-845c-479f-980e-bef15710653e\"}";
-    }
 }
