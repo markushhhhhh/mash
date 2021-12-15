@@ -15,7 +15,6 @@ Using https://maven.apache.org/, execute following comands in the project root f
 ```
 $ mvn install
 $ mvn spring-boot:run
-...
 ```
 One can also package the application as a java jar and run locally by executing the following commands in the projects root folder:
 ```
