@@ -40,7 +40,6 @@ public class CoverArtService {
                         // Calling CAA to get image URL
                         alb.setImage(new URL(getCoverArtForAlbum(releaseGroup.getId())));
                     } catch (MalformedURLException e) {
-                        LOGGER.info(e.getMessage());
                         alb.setImage(null);
                     }
                     return alb;
