@@ -21,35 +21,41 @@ import reactor.netty.http.client.HttpClient;
 @Service
 public class CoverArtApi {
 
-    private static Logger LOGGER = LoggerFactory.getLogger(CoverArtApi.class);
+        private static Logger LOGGER = LoggerFactory.getLogger(CoverArtApi.class);
 
-    @Value("${ca.endpoint}")
-    private String caEndpoint;
+        @Value("${ca.endpoint}")
+        private String caEndpoint;
 
-    HttpClient client = HttpClient.create()
-            .followRedirect(true);
+        HttpClient client = HttpClient.create()
+                        .followRedirect(true);
 
-    WebClient webClient = WebClient.builder()
-            .clientConnector(new ReactorClientHttpConnector(client))
-            .build();
+        WebClient webClient = WebClient.builder()
+                        .clientConnector(new ReactorClientHttpConnector(client))
+                        .build();
 
-    @Cacheable("coverart")
-    public String callCoverArt(String id) {
-        LOGGER.info("Calling CAA API");
-        String caData;
+        @Cacheable("coverart")
+        public String callCoverArt(String id) {
+                LOGGER.info("Calling CAA API");
+                String caData;
+                try {
+                        caData = webClient.get()
+                                        .uri(caEndpoint, id)
+                                        .accept(MediaType.APPLICATION_JSON)
+                                        .retrieve()
+                                        .onStatus(status -> status.equals(HttpStatus.NOT_FOUND),
+                                                        response -> Mono.error(new NoCoverArtException(
+                                                                        "No cover art found for album: " + id)))
+                                        .bodyToMono(String.class)
+                                        .timeout(Duration.ofSeconds(3))
+                                        .retry(2)
+                                        .block();
+                } catch (NoCoverArtException e) {
+                        // IMPROVENT overall error handling for this API
+                        LOGGER.info(e.getMessage());
+                        return "http://no-coverart-available-at-source.se";
+                }
 
-        caData = webClient.get()
-                .uri(caEndpoint, id)
-                .accept(MediaType.APPLICATION_JSON)
-                .retrieve()
-                .onStatus(status -> status.equals(HttpStatus.NOT_FOUND),
-                        response -> Mono.error(new NoCoverArtException("No cover art found for album: " + id)))
-                .bodyToMono(String.class)
-                .timeout(Duration.ofSeconds(3))
-                .retry(2)
-                .block();
-
-        return caData;
-    }
+                return caData;
+        }
 
 }
