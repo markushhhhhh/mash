@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.example.artistapi.apis.CoverArtApi;
+import com.example.artistapi.exceptions.NoCoverArtException;
 import com.example.artistapi.models.mash.Album;
 import com.example.artistapi.models.mb.MbData;
 import com.jayway.jsonpath.JsonPath;
@@ -16,6 +17,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import io.netty.handler.timeout.TimeoutException;
 
 @Service
 public class CoverArtService {
@@ -47,7 +50,21 @@ public class CoverArtService {
     }
 
     private String getCoverArtForAlbum(String id) {
-        String coverArtResponse = caApi.callCoverArt(id);
+        String coverArtResponse;
+        try {
+            coverArtResponse = caApi.callCoverArt(id);
+        } catch (NoCoverArtException e) {
+            // IMPROVEMENT might move to API client to improve caching
+            LOGGER.info(e.getMessage());
+            return "http://no-coverart-available-at-source.se";
+        } catch (TimeoutException e) {
+            // IMPROVEMENT better solution
+            LOGGER.info(e.getMessage());
+            return "http://timeout.se";
+        } catch (Exception e) {
+            LOGGER.info(e.getMessage());
+            return null;
+        }
         return getUrlFromCaResponse(coverArtResponse);
     }
 
