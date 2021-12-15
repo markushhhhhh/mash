@@ -23,6 +23,7 @@ public class Controller {
         } catch (NoArtistException exc) {
             // IMPROVEMENT - Might want to return an error object instead of Artist
             Artist art = new Artist();
+            art.setMbid(mbid);
             art.setDescription(exc.getMessage());
             return art;
         }
