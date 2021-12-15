@@ -8,15 +8,15 @@ Aggregating(mashing) data from 4 REST APIs and starting a new REST API. The APIs
 - Wikidata (https://www.wikidata.org/w/api.php)
 - Wikipedia (https://en.wikipedia.org/w/api.php)
 
-## Use instructions
-Make use of Maven
+## Usage instructions
+Using https://maven.apache.org/, execute following comands in the project root folder:
 ```
 $ mvn install
 $ mvn spring-boot:run
 $ curl http://localhost:8080/5b11f4ce-a62d-471e-81fc-a69a8278c7da
 ...
 ```
-One can also package the application as a java jar and run locally
+One can also package the application as a java jar and run locally by executing the following commands in the projects root folder:
 ```
 $ mvn package
 $ java -jar target\artist-api-0.0.1-SNAPSHOT.jar
@@ -24,20 +24,19 @@ $ java -jar target\artist-api-0.0.1-SNAPSHOT.jar
 ``` 
 Or make use of the service accessing https://mash.uppeimolnen.se
 
-## mbid:s
+## Mbid:s
 Access musicbrainz.org to fetch mbids for your favorite artist
 
-| Artist            | mbid                                  |
-|-------------------|---------------------------------------|
-| Nirvana           | 5b11f4ce-a62d-471e-81fc-a69a8278c7da  |
-| Robyn             | 5a8e07d5-d932-4484-a7f7-e700793a9c94  |
+* Nirvana - 5b11f4ce-a62d-471e-81fc-a69a8278c7da
+* Robyn   - 5a8e07d5-d932-4484-a7f7-e700793a9c94
+* Meshuggah - cf8b3b8c-118e-4136-8d1d-c37091173413
 
 ## Example
 
 Request:
-`localhost:8080/f27ec8db-af05-4f36-916e-3d57f91ecf5e`
+`localhost:8080/5b11f4ce-a62d-471e-81fc-a69a8278c7da`
 or
-`https://mash.uppeimolnen.se/f27ec8db-af05-4f36-916e-3d57f91ecf5e`
+`https://mash.uppeimolnen.se/5b11f4ce-a62d-471e-81fc-a69a8278c7da`
 
 Response : 
 ```
