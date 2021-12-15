@@ -15,7 +15,6 @@ Using https://maven.apache.org/, execute following comands in the project root f
 ```
 $ mvn install
 $ mvn spring-boot:run
-$ curl http://localhost:8080/5b11f4ce-a62d-471e-81fc-a69a8278c7da
 ...
 ```
 One can also package the application as a java jar and run locally by executing the following commands in the projects root folder:
