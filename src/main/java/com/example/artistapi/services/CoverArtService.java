@@ -53,10 +53,6 @@ public class CoverArtService {
         String coverArtResponse;
         try {
             coverArtResponse = caApi.callCoverArt(id);
-        } catch (NoCoverArtException e) {
-            // IMPROVEMENT might move to API client to improve caching
-            LOGGER.info(e.getMessage());
-            return "http://no-coverart-available-at-source.se";
         } catch (TimeoutException e) {
             // IMPROVEMENT better solution
             LOGGER.info(e.getMessage());
