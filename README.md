@@ -9,6 +9,8 @@ Aggregating(mashing) data from 4 REST APIs and providing data for an artist thro
 - Wikipedia (https://en.wikipedia.org/w/api.php)
 
 ## Usage instructions
+Runs on [Java 11](https://www.oracle.com/java/technologies/downloads/#java11).
+
 Using https://maven.apache.org/, execute following comands in the project root folder:
 ```
 $ mvn install
