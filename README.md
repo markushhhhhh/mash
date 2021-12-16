@@ -61,5 +61,5 @@ Response :
 ```
 
 ## Known issues
-* The CoverArtArchive API is quite slow which in turn slows down the response time for the Mash service REST API.
+* The CoverArtArchive API is quite slow which in turn slows down the response time for the Mash service REST API and in some cases the service fails to fetch the URL for the album picture.
 
