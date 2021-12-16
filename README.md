@@ -2,7 +2,8 @@
 MusicMasher service 
 
 ## Description
-Aggregating(mashing) data from 4 REST APIs and providing data for an artist through a new REST API. The 4 APIs used for aggreagating data are:
+The application is accepting GET requests from clients and returning aggregated(mashed) information about an artist. The client needs to provide an 'mbid' in the URL which acts as an identifier for the artists when retieving information.
+The 4 APIs used for fetching data about the specific artist are:
 - MusicBrainz (http://musicbrainz.org/ws/2)
 - Cover Art Archive (http://coverartarchive.org/)
 - Wikidata (https://www.wikidata.org/w/api.php)
