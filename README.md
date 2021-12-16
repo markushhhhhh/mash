@@ -1,5 +1,5 @@
 # Mash
-MusicMasher service 
+MusicMasher REST API service 
 
 ## Description
 The application is accepting GET requests from clients and returning aggregated(mashed) information about an artist. The client needs to provide an 'mbid' in the URL which acts as an identifier for the artists when retieving information.
